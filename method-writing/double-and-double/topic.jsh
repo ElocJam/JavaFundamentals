@@ -4,115 +4,155 @@
 // Exercise 1: Basic Double Operations
 // Return the sum of two doubles
 public double calculateSum(double a, double b) {
-    // Your code here
-    
+    double sum = a + b;
+        return sum;
 }
 
 // Return the average of three doubles
 public double calculateAverage(double a, double b, double c) {
-    // Your code here
-    
+    double average = (a + b + c) / 3.0;
+        return average;
 }
 
 // Exercise 2: Math Operations
 // Return the larger of two doubles
 public double findLarger(double a, double b) {
-    // Your code here
-    
+    double max = Math.max(a, b);
+        return max;
 }
 
 // Return the absolute value of a double
 public double calculateAbsolute(double number) {
-    // Your code here
-    
+    double absolute = Math.abs(number);
+        return number;
 }
 
 // Round double to nearest integer
 public int roundToNearestInt(double number) {
-    // Your code here
-    
+    return (int) Math.round(number);
 }
 
 // Exercise 3: Precision and Comparison
 // Check if two doubles are equal within tolerance
 public boolean areDoublesEqual(double a, double b, double tolerance) {
-    // Your code here
-    
+    return Math.abs(a - b) <= tolerance;
 }
 
 // Format double to string with 2 decimal places
 public String formatToTwoDecimals(double number) {
-    // Your code here
-    
+    String formatted = String.format("%.2f", number);
+        return formatted;
 }
 
 // Exercise 4: Mathematical Calculations
 // Calculate area of circle (π × r²)
 public double calculateCircleArea(double radius) {
-    // Your code here
-    
+    double area = Math.PI * radius * radius;
+        return area;
 }
 
 // Calculate distance between two points using distance formula
 // √[(x2-x1)² + (y2-y1)²]
 public double calculateDistance(double x1, double y1, double x2, double y2) {
-    // Your code here
-    
+    double dx = x2 - x1;
+    double dy = y2 - y1;
+        return Math.sqrt(dx * dx + dy * dy);
 }
 
 // Calculate compound interest: principal × (1 + rate)^years
 public double calculateCompoundInterest(double principal, double rate, int years) {
-    // Your code here
-    
+    double interest = principal * Math.pow(1 + rate, years);
+        return interest;
 }
 
 // Exercise 5: Range and Validation
 // Check if value is between min and max (inclusive)
 public boolean isInRange(double value, double min, double max) {
-    // Your code here
-    
+    return value >= min && value <= max;
 }
 
 // Constrain value to be within min and max bounds
 public double clampValue(double value, double min, double max) {
-    // Your code here
-    
+    return Math.max(min, Math.min(max, value));
 }
 
 // Exercise 6: Double Object Practice
 // Safely parse string to Double, return null if fails
 public Double parseDoubleSafely(String text) {
-    // Your code here
-    
+    try {
+        return Double.parseDouble(text);
+    } catch (NumberFormatException e) {
+        return null;
+    }
 }
 
 // Safely compare Double objects (handle nulls)
 // Return: -1 if d1 < d2, 0 if equal, 1 if d1 > d2
 // null is considered less than any number
 public int compareDoubles(Double d1, Double d2) {
-    // Your code here
-    
+    if (d1 == null && d2 == null) {
+        return 0;
+    }
+    if (d1 == null) {
+        return -1;
+    }
+    if (d2 == null) {
+        return 1;
+    }
+    return Double.compare(d1, d2);
 }
 
 // Exercise 7: Array Statistics
 // Find maximum value in array
 public double findMaximum(double[] numbers) {
-    // Your code here
-    
+    double max = Double.MIN_VALUE;
+        for (double val : data) {
+            if (val > max) {
+                max = val;
+            }
+        }
+        return max;
 }
 
 // Calculate arithmetic mean (average) of array
 public double calculateMean(double[] numbers) {
-    // Your code here
-    
+    if (numbers == null || numbers.length == 0) {
+        return 0.0;
+    }
+
+    double sum = 0.0;
+    for (double value : numbers) {
+        sum += value;
+    }
+    return sum / numbers.length;
 }
 
 // Calculate standard deviation of array
 public double calculateStandardDeviation(double[] numbers) {
-    // Your code here
-    // Hint: Standard deviation = √(Σ(x - mean)² / n)
+    if (numbers == null || numbers.length == 0) {
+        throw new IllegalArgumentException("Array cannot be null or empty");
+    }
+
+    double sum = 0.0;
+    for (double num : numbers) {
+        sum += num;
+    }
+    double mean = sum / numbers.length;
     
+    double sumOfSquaredDifferences = 0.0;
+    for (double num : numbers) {
+        sumOfSquaredDifferences += Math.pow(num - mean, 2);
+    }
+    double variance;
+    if (numbers.length == 1) {
+        variance = 0.0;
+    } else {
+        variance = sumOfSquaredDifferences / (numbers.length - 1);
+    }
+    return Math.sqrt(variance);
 }
+
+test
 
 // Test your methods here - uncomment and modify as needed
 /*
