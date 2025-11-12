@@ -6,27 +6,32 @@ import java.util.Collections;
 // Exercise 1: ArrayList Basics
 // Create and return a new ArrayList of Strings
 public ArrayList<String> createStringList() {
-    // Your code here
-    
+ArrayList<String> fruits = new ArrayList<>();
+    list.add("Apple");
+    list.add("Banana");
+    list.add("Cherry");
+    list.add("Date");
+
+    return fruits;
 }
 
 // Return size of ArrayList (handle null)
 public int getListSize(ArrayList<String> list) {
-    // Your code here
-    
+    ArrayList<String> list = new ArrayList<>();
+    int size = list.size();
+    return size;
 }
 
 // Exercise 2: Adding Elements
 // Add item to the end of the list
 public void addToEnd(ArrayList<String> list, String item) {
-    // Your code here
-    
+        String list.add("end");
 }
 
 // Add item to the beginning of the list
 public void addToBeginning(ArrayList<String> list, String item) {
-    // Your code here
-    
+    ArrayList<String> list = new ArrayList<>();
+        String list.add(0, beginning);
 }
 
 // Add item at specific position
