@@ -4,36 +4,55 @@
 // Exercise 1: Basic If Statement
 // Write a method that checks if someone is an adult (18 or older)
 public String checkAge(int age) {
-    // Your code here
-    
+    if (age >= 18) {
+        return "Adult";
+    } else {
+        return "Minor";
+    }
 }
 
 // Exercise 2: Grade Classification  
 // Classify a numeric grade into a category
 public String classifyGrade(int score) {
-    // Your code here
-    
+    if (score >= 90) {
+        return "A";
+    } else {
+        return "B";
+    }
 }
 
 // Exercise 3: Number Sign
 // Determine if a number is positive, negative, or zero
 public String getSign(int number) {
-    // Your code here
-    
+    if (number > 0) {
+        return "positive";
+    } else if (number < 0) {
+        return "negative";
+    } else {
+        return "zero";
+    }   
 }
 
 // Exercise 4: Temperature Check
 // Classify temperature as hot, warm, or cold
 public String checkTemperature(double temp) {
-    // Your code here
-    
+    if (temp >= 60) {
+        return "hot";
+    } else if (temp >= 40) {
+        return "warm";
+    } else {
+        return "cold";
+    }
 }
 
 // Exercise 5: Login Validation
 // Check if username and password are valid (not null and not empty)
 public boolean validateLogin(String username, String password) {
-    // Your code here
-    
+    if (username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
+        return true;
+    } else {
+        return false;
+    }  
 }
 
 // Test your methods here - uncomment and modify as needed
