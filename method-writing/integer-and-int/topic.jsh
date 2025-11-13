@@ -31,8 +31,7 @@ public int findAbsoluteValue(int number) {
 // Exercise 3: Digit Operations
 // Count how many digits are in a positive integer
 public int countDigits(int number) {
-    Integer digitCount = Integer.valueOf(number);
-        return digitCount;
+    return String.valueOf(number).length();
 }
 
 // Reverse the digits of a positive integer (123 becomes 321)
