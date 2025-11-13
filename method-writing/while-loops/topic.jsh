@@ -4,50 +4,86 @@
 // Exercise 1: Countdown
 // Print numbers from start down to 1, then print "Blast off!"
 public void countdown(int start) {
-    // Your code here
-    
+
+    while (start > 0) {
+        System.out.println(start);
+        start --;
+    }
+    System.out.println("Blast off!");
 }
 
 // Exercise 2: Sum Calculator
 // Calculate the sum of all integers from 1 to n
 public int sumUpTo(int n) {
-    // Your code here
-    
+    while (n <= 1) {
+        sum = sum + n;
+        n++;
+    }
+    return sum;
 }
 
 // Exercise 3: Number Guessing Helper
 // Count how many steps it takes to get from start to target (adding 1 each time)
 public int findNumber(int target, int start) {
-    // Your code here
+    
+    Count = 0;
+    while (start <= target) {
+        start++;
+        Count++;
+    }
+    return Count;
     
 }
 
 // Exercise 4: Digit Counter
 // Count how many digits are in a positive integer
 public int countDigits(int number) {
-    // Your code here
+    return String.valueOf(number).length();
     
 }
 
 // Exercise 5: Password Strength Checker
 // Use a while loop to count characters and determine password strength
 public String checkPasswordStrength(String password) {
-    // Your code here
-    
+    int count = 0;
+    int index = 0;
+    while (index < password.length()) {
+        count++;
+        index++;
+    }
+    if (count >= 8) {
+        return "Strong";
+    } else if (count >= 5) {
+        return "Okay";
+    } else {
+        return "Weak";
+    }
 }
 
 // Exercise 6: Factorial Calculator
 // Calculate n! (n factorial) using a while loop
 public long factorial(int n) {
-    // Your code here
-    
+    long result = 1;
+    int i = 1;
+
+    while (i <= n) {
+        result = result * i;
+        i++;
+    }
+    return result;
 }
 
 // Exercise 7: Power Calculator
 // Calculate base^exponent using a while loop (don't use Math.pow)
 public int power(int base, int exponent) {
-    // Your code here
-    
+    int result = 1;
+    int count = 0;
+
+    while (count < exponent) {
+        result = result * base;
+        count++;
+    }
+    return result;
 }
 
 // Test your methods here - uncomment and modify as needed
