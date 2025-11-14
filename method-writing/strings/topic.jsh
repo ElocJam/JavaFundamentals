@@ -4,118 +4,142 @@
 // Exercise 1: String Basics
 // Return the length of a string (handle null strings)
 public int getStringLength(String text) {
-    // Your code here
-    
+    int length = text.length();
+    return length;
 }
 
 // Return true if string is null or empty
 public boolean isStringEmpty(String text) {
-    // Your code here
-    
+   booean isEmpty = text.isEmpty();
+    return isEmpty;
 }
 
 // Exercise 2: String Comparison
 // Safely compare two strings for equality (handle nulls)
 public boolean areStringsEqual(String str1, String str2) {
-    // Your code here
-    
+    boolean same = str1.equals(str2);
+    return same;
 }
 
 // Compare strings ignoring case differences
 public boolean compareStringsIgnoreCase(String str1, String str2) {
-    // Your code here
-    
+    boolean sameIgnoreCase = srt1.equalsIgnoreCase(str2);
+        return sameIgnoreCase;
 }
 
 // Exercise 3: String Search and Contains
 // Return true if text contains the search string
 public boolean containsSubstring(String text, String search) {
-    // Your code here
-    
+    boolean hasSearch = text.contains("search");
+    return hasSearch;
 }
 
 // Return index of first occurrence of search in text (-1 if not found)
 public int findFirstPosition(String text, String search) {
-    // Your code here
-    
+    return text.indexOf("search");
 }
 
 // Exercise 4: String Extraction
 // Return the first character of a string (handle empty strings)
 public char getFirstCharacter(String text) {
-    // Your code here
-    // Return a space ' ' for empty/null strings
-    
+    if (text == null || text.isEmpty()) {
+        return ' ';
+    }
+    return text.charAt(0);
 }
 
 // Return the last character of a string
 public char getLastCharacter(String text) {
-    // Your code here
-    // Return a space ' ' for empty/null strings
-    
+    if (text == null || text.isEmpty()) {
+        return ' ';
+    }
+    return text.charAt(text.length() - 1);
 }
 
 // Return substring from start to end index
 public String getSubstring(String text, int start, int end) {
-    // Your code here
-    
+    if (text == null || text.isEmpty()) {
+        return "";
+    }
+    return text.substring(start, end);
 }
 
 // Exercise 5: String Modification
 // Convert string to uppercase (handle null)
 public String makeUpperCase(String text) {
-    // Your code here
-    
+    if (text == null || text.isEmpty()) {
+        return "";
+    }
+    String upper = text.toUpperCase();
+    return upper;
+
 }
 
 // Convert string to lowercase (handle null)
 public String makeLowerCase(String text) {
-    // Your code here
-    
+    if (text == null || text.isEmpty()) {
+        return "";
+    }
+    String lower = text.toLowerCase();
+        return lower;
 }
 
 // Remove leading and trailing spaces
 public String trimWhitespace(String text) {
-    // Your code here
-    
+    String trimmed = text.trim();
+        return trimmed;
 }
 
 // Exercise 6: String Building and Joining
 // Join two strings together (handle nulls)
 public String concatenateStrings(String str1, String str2) {
-    // Your code here
-    
+    if (str1 == null) {
+        str1 = "";
+    }
+    if (str2 == null) {
+        str2= "";
+    }
+    return str1 + str2;
 }
 
 // Repeat a string the specified number of times
 public String repeatString(String text, int count) {
-    // Your code here
-    
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < count; i++) {
+        result.append(text);
+    }
+    return result.toString();
 }
 
 // Join array of strings with a separator
 public String joinWithSeparator(String[] words, String separator) {
-    // Your code here
-    
+   return String.join(separator, words);
 }
 
 // Exercise 7: String Validation and Analysis
 // Return true if email contains "@" and "." characters
 public boolean isValidEmail(String email) {
-    // Your code here
-    
+    return email.contains("@") && email.contains(".");
 }
 
 // Count number of vowels (a, e, i, o, u) in string (case insensitive)
 public int countVowels(String text) {
-    // Your code here
-    
+    int count = 0;
+    String vowels = "aeiouAEIOU";
+    for (int i = 0; i < text.length(); i++) {
+        if (vowels.indexOf(text.charAt(i)) >= 0) {
+            count++;
+        }
+    }
+    return count;
 }
 
 // Return true if string reads same forwards and backwards (ignore case and spaces)
 public boolean isPalindrome(String text) {
-    // Your code here
-    
+    String cleaned = text.toLowerCase().replace(" ", "");
+    String reversed = new
+StirngBuilder(cleaned).reverse().toString();
+    return cleaned.equals(reversed);
 }
 
 // Test your methods here - uncomment and modify as needed
