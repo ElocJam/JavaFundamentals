@@ -5,135 +5,180 @@ import java.util.ArrayList;
 // Exercise 1: Reference Basics
 // Create and return array of 3 Strings
 public String[] createStringArray() {
-    // Your code here
+    
+    String[] strings = new String[3];
+        strings[0] = "First";
+        strings[1] = "Second";
+        strings[2] = "Third";
+
+        return strings;
     
 }
 
 // Check if two String references point to same object (using ==)
 public boolean areReferencesEqual(String str1, String str2) {
-    // Your code here
+    
+    return str1 == str2;
     
 }
 
 // Check if two String references have same content (using equals)
 public boolean areContentsEqual(String str1, String str2) {
-    // Your code here
+    
+    return str1.equals(str2);
     
 }
 
 // Exercise 2: Null Handling
 // Return true if reference is null
 public boolean isNullReference(Object obj) {
-    // Your code here
+    
+    return obj == null;
     
 }
 
 // Convert object to string, return "null" if object is null
 public String safeToString(Object obj) {
-    // Your code here
     
+    if (obj == null) {
+        return "null";
+    }
+    return obj.toString();
 }
 
 // Return length of string, or 0 if null
 public int safeLength(String str) {
-    // Your code here
+    if (str == null) {
+        return 0;
+    }
+    return str.length();
     
 }
 
 // Exercise 3: Array References
 // Copy the reference (not content) of an array
 public int[] copyArrayReference(int[] original) {
-    // Your code here
     
+    int [] copiedReferenceArray = original;
+    return copiedReferenceArray;
 }
 
 // Create new array with same content
 public int[] copyArrayContent(int[] original) {
-    // Your code here
+    
+    return Arrays.copyOf(original, original.length);
     
 }
 
 // Change value in array at specified index
 public void modifyArray(int[] array, int index, int newValue) {
-    // Your code here
+    
+    array[index] = newValue;
     
 }
 
 // Exercise 4: Object State Changes
 // Create StringBuilder with initial text
 public StringBuilder createStringBuilder(String initial) {
-    // Your code here
     
+    StringBuilder sb = new StringBuilder(initial);
+        return sb;
 }
 
 // Add text to StringBuilder
 public void appendToBuilder(StringBuilder sb, String text) {
-    // Your code here
+    
+    sb.append(text);
     
 }
 
 // Get current content as String
 public String getBuilderContent(StringBuilder sb) {
-    // Your code here
+    
+    String result = sb.toString();
+        return result;
     
 }
 
 // Exercise 5: Reference Comparison
 // Find first String with same content as target
 public String findStringInArray(String[] array, String target) {
-    // Your code here
-    
+
+    for (int i = 0; i < array.length; i++) {
+        if (array[i].equals(target))
+        return array[i];
+    }
+    return null;
 }
 
 // Count how many elements are null
 public int countNullReferences(Object[] array) {
-    // Your code here
-    
+    int count = 0;
+
+    for (int i = 0; i < array.length; i++) {
+        if (array[i] == null)
+        count++;
+    }
+    return count;
 }
 
 // Replace all null elements with replacement string
 public void replaceNulls(String[] array, String replacement) {
-    // Your code here
+    
+    for (int i = 0; i < array.length; i++) {
+        if (array[i] == null)
+            array[i] = replacement;
+    }
     
 }
 
 // Exercise 6: Multiple References
 // Create two String literals and show they reference same object
 public boolean demonstrateStringPool() {
-    // Your code here - create two string literals with same value
-    // Return true if they reference the same object
+    String a = "true";
+    String b = "true";
+
+    return a == b;
     
 }
 
 // Create two String objects with 'new' and show they're different
 public boolean demonstrateNewString() {
-    // Your code here - create two strings with new String()
-    // Return true if they are different objects (but same content)
+    String a = new String("new");
+    String b = new String("new");
+
+    return a != b;
     
 }
 
 // Swap two references in an array
 public void swapReferences(StringBuilder[] array, int index1, int index2) {
-    // Your code here
+    
+    StringBuilder temp = array[index1];
+    array[index1] = array[index2];
+    array[index2] = temp;
     
 }
 
 // Exercise 7: Object Creation and References
 // Create and return new ArrayList<String>
 public ArrayList<String> createArrayList() {
-    // Your code here
+    
+    return new ArrayList<>();
     
 }
 
 // Add item to list
 public void addToList(ArrayList<String> list, String item) {
-    // Your code here
+    
+    list.add(item);
     
 }
 
 // Return the same list reference
 public ArrayList<String> getListReference(ArrayList<String> list) {
-    // Your code here
+    
+    return list;
     
 }
 
