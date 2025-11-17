@@ -5,123 +5,238 @@ import java.util.ArrayList;
 // Exercise 1: Basic Class Creation
 // Create a Person class with name and age fields
 class Person {
-    // Your fields here
     
-    // Your constructor here
-    
-    // Your introduce() method here
-    
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
 }
 
 // Exercise 2: Class with Methods
 // Create a BankAccount class with account operations
 class BankAccount {
-    // Your fields here
     
-    // Your constructor here
+    String ownerName;
+    double balance;
+    String accountNumber;
     
-    // Your deposit method here
+    public BankAccount(String accountNumber, String ownerName) {
+        this.accountNumber = accountNumber;
+        this.ownerName = ownerName;
+        this.balance = 0.0;
+    }
     
-    // Your withdraw method here
+    public void deposit(double amount) {
+        balance = balance + amount;
+    }
     
-    // Your getBalance method here
+    public boolean withdraw(double amount) {
+        if (balance >= amount) {
+            balance = balance - amount;
+            return true;
+        }
+        return false;
+    }
     
-    // Your getAccountInfo method here
+    public double getBalance() {
+        return balance;
+    }
+    
+    public String getAccountInfo() {
+        return "Account: " + accountNumber + ", Owner: " + ownerName + ", Balance: " + balance; 
+    }
     
 }
 
 // Exercise 3: Object Creation and Usage
 // Create and return a Person object
 public Person createPerson(String name, int age) {
-    // Your code here
     
-}
+        Person person = new Person(name, age);
+        return person;
+    }
+
 
 // Create and return a BankAccount object
 public BankAccount createBankAccount(String accountNumber) {
-    // Your code here
     
-}
+        BankAccount account1 = new BankAccount(ownerName, balance, accountNumber);
+        return account1;
+
+    }
 
 // Demonstrate creating and using a Person object
 public void demonstratePersonUsage() {
-    // Your code here
     
+    Person person2 = new Person("Natalie", 23);
+    
+    System.out.println(person2.name);
 }
 
 // Exercise 4: Working with Multiple Objects
 // Create a Car class
 class Car {
-    // Your fields here
     
-    // Your constructor here
+    String make;
+    String model;
+    int year;
+    String color;
     
-    // Your getCarInfo method here
+    public Car (String make, String model, int year, String color) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+    }
     
-    // Your isClassic method here (car is classic if > 25 years old)
+    public String getCarInfo() {
+        return "Make: " + make + " Model: " + model + " Year: " + year + " color: " + color;
+    }
+    public boolean isClassic() {
+        return (2025 - year) > 25;
+    }
     
 }
 
 // Compare two cars and return which is older
 public Car compareCars(Car car1, Car car2) {
-    // Your code here
-    
+
+    if (car1.year < car2.year) {
+        return car1;
+    }
+    return car2;
 }
 
 // Exercise 5: Object State and Behavior
 // Create a Counter class that can increment/decrement
 class Counter {
-    // Your fields here
     
-    // Your constructor here
+    int count;
+
+    public Counter() {
+        count = 0;
+    }
+
+    public void increment() {
+        count++;
+    }
+
+    public void decrement() {
+        count--;
+    }
     
-    // Your increment method here
-    
-    // Your decrement method here
-    
-    // Your reset method here
-    
-    // Your getCount method here
-    
+    public void reset() {
+        count = 0;
+    }
+
+    public int getCount() {
+        return count;
+    }
 }
 
 // Exercise 6: Class with Validation
 // Create a Student class with input validation
 class Student {
-    // Your fields here
     
-    // Your constructor with validation here
+    String name;
+    int age;
+    double gpa;
     
-    // Your isHonorStudent method here
+    public Student(String name, int age, double gpa) {
+        if (name == null || name.isEmpty()) {
+            this.name = "Unknown";
+        } else {
+        this.name = name;
+        }
+
+        if (age < 5 || age > 100) {
+            this.age = 18;
+        } else {
+        this.age = age;
+        }
+
+        if (gpa < 0.0 || gpa > 4.0) {
+            this.gpa = 0.0;
+        } else {
+        this.gpa = gpa;
+    }
+    }
     
-    // Your getStudentInfo method here
+    public boolean isHonorStudent() {
+        return gpa >= 3.5;
+        }
     
-}
+    public String getStudentInfo() {
+        return "Name: " + name + " Age: " + age + " GPA: " + gpa;
+        }
+    }
+
 
 // Exercise 7: Object Interaction
 // Create a Book class
 class Book {
-    // Your fields here
     
-    // Your constructor here
+    String author;
+    int pages;
+    String genre;
     
-    // Add any helpful methods here
+    public Book (String author, int pages, String genre) {
+        this.author = author;
+        this.pages = pages;
+        this.genre = genre;
+    }
     
+    public String getBookInfo() {
+        return "Author: " + author + ", Pages: " + pages + ", Genre: " + genre;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+    
+    public String getGenre() {
+        return genre;
+    }
 }
 
 // Create a Library class that manages books
 class Library {
-    // Your fields here
+    ArrayList<Book> availableBooks;
+    ArrayList<Book> checkedOutBooks;
     
-    // Your constructor here
+    public Library() {
+        availableBooks = new ArrayList<>();
+        checkedOutBooks = new ArrayList<>();
+    }
     
-    // Your addBook method here
+    public boolean checkOutBook(Book book) {
+        if (availableBooks.contains(book)) {
+            availableBooks.remove(book);
+            checkedOutBooks.add(book);
+            return true;
+        }
+        return false;
+    }
     
-    // Your checkOutBook method here
+    public boolean returnBook(Book book) {
+        if (checkedOutBooks.contains(book)) {
+            checkedOutBooks.remove(book);
+            availableBooks.add(book);
+            return true;
+        }
+        return false;
+    }
     
-    // Your returnBook method here
-    
-    // Your getAvailableBooks method here
+    public ArrayList<Book> getAvailableBooks() {
+        return availableBooks;
+    }
     
 }
 
